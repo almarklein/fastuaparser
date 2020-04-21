@@ -1,7 +1,7 @@
 """A super-fast user agent string parser"""
 
 
-__version__ = '0.1.3'
+__version__ = "0.1.3"
 
 
 def parse_ua(s, always_include_os=False):
