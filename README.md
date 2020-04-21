@@ -29,6 +29,17 @@ If you can live with the above restrictions (you probably can if
 you're using this to e.g. monitor your website's traffic) then use
 this function: it's over 100 times faster that ua_parser!
 
+Efficiency matters. It means you can do analytics on your web server
+without adding significant overhead. These little savings of CPU add
+up, and can help reduce the carbon footprint of your web server.
+
+
+## Origins
+
+This code used to be part of [my time tracking app](https://timeturtle.app),
+but now I'm moving things around, and turning it into a open source
+package is just easier.
+
 
 ## License
 
