@@ -4,7 +4,7 @@
 __version__ = "0.1.3"
 
 
-def parse_ua(s, always_include_os=False):
+def parse_ua(s: str, always_include_os: bool=False) -> str:
     """ Parse the given user-agent string and return a string of the
     form "client - os". Use x.partition(' - ') if needed. The
     client is "Browser" if unknown. The os is "Other" if unknown and

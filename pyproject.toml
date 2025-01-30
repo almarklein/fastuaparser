@@ -1,10 +1,29 @@
 [build-system]
-requires = ["flit_core >=2,<3"]
+requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
-[tool.flit.metadata]
-module = "fastuaparser"
-author = "Almar Klein"
-author-email = "almar.klein@gmail.com"
-home-page = "https://github.com/almarklein/fastuaparser"
-classifiers = ["License :: OSI Approved :: MIT License"]
+[project]
+dynamic = ["version"]
+name = "fastuaparser"
+description = "A super-fast user agent string parser "
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Almar Klein" }]
+keywords = ["user-agent", "web", "analytics"]
+requires-python = ">= 3.6"
+dependencies = []
+[project.optional-dependencies]
+lint = ["ruff"]
+tests = ["pytest"]
+dev = ["fastuaparser[lint,tests, docs]"]
+
+[project.urls]
+Homepage = "https://github.com/almarklein/fastuaparser"
+Repository = "https://github.com/almarklein/fastuaparser"
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "B", "RUF"]
+ignore = []
