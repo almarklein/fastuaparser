@@ -132,6 +132,7 @@ oses_not_of_interest = (
     "Tizen",
     "Chromecast",
     "Firefox OS",
+    "SerenityOS",
 )
 
 
@@ -231,8 +232,10 @@ def test_parseua_client():
                 pass
             elif ref_client == "Android" and client in ("Safari", "Chrome"):
                 pass  # builtin android browser is based on either
+            # elif client == "Chrome" and ref_alias in ("Brave", ):
+            #     pass  # A Chrome-based browser
             elif client == "Chrome" and ref_alias is None:
-                pass  # A Chrome-based browser, these include Electron apps
+                pass  # Another Chrome-based browser, these include Electron apps
             elif client == "Safari" and ref_alias is None:
                 pass  # A Safari based browser
             elif client == "IE" and ref_client in ie_like:
@@ -268,6 +271,8 @@ def test_parse_ua_os():
             elif os == "Other" and s.startswith("SalesforceMobileSDK"):
                 pass  # Special case
             elif os == "Other" and ref_os in oses_not_of_interest:
+                pass
+            elif os == "Other" and "Chromecast" in ref_os:
                 pass
             else:
                 assert False, (os, ref_os)  # noqa

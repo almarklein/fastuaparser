@@ -31,6 +31,8 @@ If you can live with the above restrictions (you probably can if
 you're using this to e.g. monitor your website's traffic) then use
 this function: it's over 100 times faster that ua_parser!
 
+On the ua-parser's set of ua strings, it renders close to 1M strings per second (in my Mac M1).
+
 
 ## Docs
 

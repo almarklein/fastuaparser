@@ -74,7 +74,7 @@ def parse_ua(s: str, always_include_os: bool = False) -> str:
                 client = "HeadlessChrome"  # Can be Chrome or Chromium based
             elif "Chromium" in s:
                 client = "Chromium"
-            elif "Brave" in s:
+            elif "brave" in ls:
                 client = "Brave"
             elif "OPR" in s:
                 client = "Opera"  # put here because it includes Chrome for compat
@@ -112,6 +112,8 @@ def parse_ua(s: str, always_include_os: bool = False) -> str:
                 opsys = "Other"
             elif "iOS" in s:
                 opsys = "iOS"
+            elif "TV" in s:
+                opsys = "Other"
         elif "watchOS" in s:
             opsys = "WatchOS"
         elif "kaios" in ls:
@@ -126,7 +128,7 @@ def parse_ua(s: str, always_include_os: bool = False) -> str:
             opsys = "Linux"
             if "Sailfish" in s:
                 opsys = "Sailfish"  # Adroidish os
-            elif "Mobile" in s or "UCW" in s:
+            elif "Mobile" in s or "UCW" in s or "OculusBrowser" in s:
                 opsys = "Android"
             elif "Philips" in s or "Sony" in s or "LG" in s:
                 opsys = "Other"
@@ -140,14 +142,14 @@ def parse_ua(s: str, always_include_os: bool = False) -> str:
             opsys = "iOS"
         elif "iP" in s and ("iPad" in s or "iPod" in s or "iPhone" in s):
             opsys = "iOS"
-        elif "Mac" in s:
+        elif "Mac" in s or "macos" in s:
             opsys = "Mac OS X"
             if "Mac_PowerPC" in s:
                 opsys = "Mac OS"
             elif "Apple TV" in s:
                 opsys = "Other"
-        elif "Darwin" in s:
-            if "86" in s:  # x86 or i86
+        elif "darwin" in ls:
+            if "86" in s or "arm64" in s:  # x86 or i86
                 opsys = "Mac OS X"
             else:
                 opsys = "iOS"
@@ -157,6 +159,8 @@ def parse_ua(s: str, always_include_os: bool = False) -> str:
             opsys = "BlackBerry OS"
         elif "PlayBook" in s:
             opsys = "BlackBerry Tablet OS"
+        elif "HarmonyOS" in s:
+            opsys = "HarmonyOS"
 
     # Return as str
     if device_type:

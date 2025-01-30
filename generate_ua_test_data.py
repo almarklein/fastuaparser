@@ -20,14 +20,14 @@ def generate_data():
 
     # Read os data from ua-parser project
     with urlopen(url + "/test_os.yaml") as f:
-        os_data = yaml.load(f)
+        os_data = yaml.load(f, yaml.Loader)
     for case in os_data["test_cases"]:
         d = data.setdefault(case["user_agent_string"], {})
         d["os"] = case["family"]
 
     # Read client data from ua-parser project
     with urlopen(url + "/test_ua.yaml") as f:
-        client_data = yaml.load(f)
+        client_data = yaml.load(f, yaml.Loader)
     for case in client_data["test_cases"]:
         ua = case["user_agent_string"]
         if ua.startswith("User agent:"):  # error in the data
