@@ -136,7 +136,6 @@ oses_not_of_interest = (
 
 
 def test_parse_ua_basics():
-
     # Does not raise
     assert parse_ua(None) == "Other"
     assert parse_ua("") == "Other"
@@ -147,7 +146,7 @@ def test_parse_ua_basics():
         assert parse_ua(ua) in (browser + " - Windows", browser + " - Windows Desktop")
 
     # Check that this first bit is important
-    for browser, ua in uas.items():
+    for _browser, ua in uas.items():
         assert parse_ua(ua[1:]) == "Other"
         assert parse_ua("x" + ua) == "Other"
 
@@ -163,7 +162,7 @@ def test_parse_ua_basics():
         )
 
     # We detect bots
-    for browser, ua in uas.items():
+    for _browser, ua in uas.items():
         assert parse_ua(ua + "bot") == "Bot"
 
     # ... in several ways
@@ -185,7 +184,6 @@ def speedometer():
 
 
 def test_parseua_client():
-
     # Read test data
     with open(ua_file, "rb") as f:
         cases = json.loads(f.read().decode())
@@ -240,11 +238,10 @@ def test_parseua_client():
             elif client == "IE" and ref_client in ie_like:
                 pass
             else:
-                assert False, (client, ref_client)
+                assert False, (client, ref_client)  # noqa
 
 
 def test_parse_ua_os():
-
     # Read test data
     with open(ua_file, "rb") as f:
         cases = json.loads(f.read().decode())
@@ -273,7 +270,7 @@ def test_parse_ua_os():
             elif os == "Other" and ref_os in oses_not_of_interest:
                 pass
             else:
-                assert False, (os, ref_os)
+                assert False, (os, ref_os)  # noqa
         else:
             pass
 
