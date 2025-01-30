@@ -4,11 +4,13 @@ __version__ = "0.1.3"
 
 
 def parse_ua(s: str, always_include_os: bool = False) -> str:
-    """Parse the given user-agent string and return a string of the
-    form "client - os". Use x.partition(' - ') if needed. The
-    client is "Browser" if unknown. The os is "Other" if unknown and
-    may contain a string "Mobile", "Tablet" or "Desktop. When the ua
-    does not represent a browser (but e.g. a bot or wget) the os is
+    """Parse the given user-agent string and return a short description.
+
+    The returned string has the form "client - os".
+
+    The client is "Browser" if unknown. The os is "Other" if unknown
+    and may contain a string "Mobile", "Tablet" or "Desktop. When the
+    ua does not represent a browser (but e.g. a bot or wget) the os is
     omitted (unless always_include_os is True).
     """
     s = str(s)
