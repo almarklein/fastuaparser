@@ -16,7 +16,6 @@ url = "https://raw.githubusercontent.com/ua-parser/uap-core/master/tests"
 
 
 def generate_data():
-
     data = {}  # ua -> {}
 
     # Read os data from ua-parser project
